@@ -1,0 +1,11 @@
+<!--bottle.wxml-->
+<view>
+    <canvas canvas-id="myCanvas"
+    style="width: 130px; height: 200px; border: 1px solid; background-color: #f00"
+    disable-scroll="true"
+    bindtouchstart="start"
+    bindtouchmove="move"
+    bindtouchend="end"/>
+    <!-- <canvas canvas-id="myCanvas"
+    style="width: 130px; height: 200px; border: 1px solid;"/> -->
+</view>

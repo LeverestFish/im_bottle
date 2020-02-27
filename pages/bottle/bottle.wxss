@@ -1,0 +1,4 @@
+/* bottle.wxss */
+canvas {
+    margin: 100px auto;
+}
