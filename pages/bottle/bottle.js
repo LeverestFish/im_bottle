@@ -73,7 +73,7 @@ Page({
     }
     var that = this;
     wx.getSystemInfo({
-      success: function(res){
+      success: function(r·es){
         console.log(res);
         that.setData({width: res.windowWidth});
       }
