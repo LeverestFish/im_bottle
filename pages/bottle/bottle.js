@@ -34,8 +34,6 @@ const BOTTLE_NAME = [
 var bottleArray = [];
 var bottleNum = BOTTLE_NAME.length;
 for (let i = 0; i < bottleNum; i++) {
-  // bottleArray[i].canvasID = i;
-  // bottleArray[i].bottleName = BOTTLE_NAME[i];
   bottleArray[i] = {
     canvasID: 'canvas-' + i,
     bottleName: BOTTLE_NAME[i]
@@ -60,10 +58,6 @@ Page({
       myBottle[i] = new bottle('canvas-' + i);
       myBottle[i].drawBottle();
     }
-    // myBottle[0] = new bottle('0');
-    // myBottle[0].drawBottle();
-    // myBottle[1] = new bottle('1');
-    // myBottle[1].drawBottle();
   },
 
   /**
