@@ -6,6 +6,7 @@
         <view class="intro-text">
         关于故事的说明关于故事的说明关于故事的说明关于故事的说明关于故事的说明关于故事的说明关于故事的说明关于故事的说明关于故事的说明关于故事的说明
         </view>
+        <view>windowWidth: {{width}}</view>
     </view>
     <view class="bottle-area clearfix">
         <view wx:for="{{bottleArray}}" class="bottle-model fl">
@@ -18,6 +19,11 @@
                 <view class="bottle-name-text">{{item.bottleName}}</view>
             </view>
         </view>
+    </view>
+    <view class="btn-area">
+        <button class="btn" loading="{{loading}}" disabled="{{disabled}}" bindtap="onTap">
+            图片(待实现)
+        </button>
     </view>
 </view>
 </view>
