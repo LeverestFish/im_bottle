@@ -1,4 +1,88 @@
+/* fundation */
+/*清除浮动*/
+.clearfix:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+.clearfix {
+    zoom: 1;
+}
+.fl {
+    float: left;
+}
+.fr {
+    float: right;
+}
+
+
+
+
 /* bottle.wxss */
-canvas {
-    margin: 100px auto;
+.width {
+    width: 300px;
+    margin: 0 auto;
+
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    color: #303133;
+}
+
+/* title */
+.title {
+    margin: 0 auto 10px auto;
+    height: 25px;
+}
+
+.title-text {
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 25px;
+}
+
+/* introduction */
+.intro {
+    margin: 0 auto;
+    padding: 0 5px;
+}
+
+.intro-text {
+    color: #909399;
+    font-size: 14px;
+    line-height: 25px;
+    letter-spacing: 1px;
+}
+
+.bottle-area {
+    margin: 10px auto;
+}
+
+/* bottle */
+.bottle-model {
+    width: 59px;
+    height: 140px;
+    padding: 0px 8px 5px;
+    /* todo padding-left was adjusted */
+}
+
+.canvas {
+    width: 59px;
+    height: 108px;
+    background-color: #f00;
+}
+
+.bottle-name {
+    width: 55px;
+    height: 28px;
+    /* background-color: #ff0; */
+    padding: 4px 2px 0 2px;
+}
+
+.bottle-name-text {
+    font-size: 10px;
+    color: #909399;
+    letter-spacing: 1px;
+    line-height: 14px;
+    text-align: center;
 }

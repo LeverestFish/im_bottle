@@ -1,11 +1,23 @@
 <!--bottle.wxml-->
-<view>
-    <canvas canvas-id="myCanvas"
-    style="width: 130px; height: 200px; border: 1px solid; background-color: #f00"
-    disable-scroll="true"
-    bindtouchstart="start"
-    bindtouchmove="move"
-    bindtouchend="end"/>
-    <!-- <canvas canvas-id="myCanvas"
-    style="width: 130px; height: 200px; border: 1px solid;"/> -->
+<view class="all">
+<view class="width">
+    <view class="title"><view class="title-text">信管的小瓶子</view></view>
+    <view class="intro">
+        <view class="intro-text">
+        关于故事的说明关于故事的说明关于故事的说明关于故事的说明关于故事的说明关于故事的说明关于故事的说明关于故事的说明关于故事的说明关于故事的说明
+        </view>
+    </view>
+    <view class="bottle-area clearfix">
+        <view wx:for="{{bottleArray}}" class="bottle-model fl">
+            <canvas canvas-id="{{item.canvasID}}" class="canvas" id="{{item.canvasID}}"
+            disable-scroll="true"
+            bindtouchstart="start"
+            bindtouchmove="move"
+            bindtouchend="end"/>
+            <view class="bottle-name">
+                <view class="bottle-name-text">{{item.bottleName}}</view>
+            </view>
+        </view>
+    </view>
+</view>
 </view>
