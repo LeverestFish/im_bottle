@@ -30,6 +30,14 @@ const BOTTLE_NAME = [
   'test11'
 ];
 
+const COLOR_LIST = [
+  '#fc5185',
+  '#3fc1c9',
+  '#364f6b',
+  '#AA1F24',
+  '#0084ff'
+]
+
 function bottle(canvasID,) {
   this.waterY = 40;
   this.lastPointY = 0;
@@ -58,7 +66,21 @@ for (let i = 0; i < bottleNum; i++) {
     bottleName: BOTTLE_NAME[i]
   }
 }
+var colorArray = [];
+for (let i = 0; i < COLOR_LIST.length; i++) {
+  colorArray[i] = {
+    isActive: 'inactive',
+    ID: 'color-' + i,
+    color: COLOR_LIST[i]
+  };
+}
+colorArray[0].isActive = 'active';
 
+function drawAll() {
+  for (let i = 0; i < bottleNum; i++) {
+    myBottle[i].drawBottle();
+  };
+}
 // bottle.js
 Page({
   /**
@@ -67,7 +89,9 @@ Page({
   data: {
     bottleArray,
     loading: false,
-    disabled: false
+    disabled: false,
+    activeColorIndex: 0,
+    colorArray
   },
 
   /**
@@ -85,6 +109,10 @@ Page({
       myBottle[i] = new bottle('canvas-' + i);
       myBottle[i].drawBottle();
     }
+  },
+
+  onReady: function() {
+    drawAll();
   },
 
   /**
@@ -119,5 +147,29 @@ Page({
 
   onTap: function(e) {
     // create pics
+  },
+
+  changeColor: function(e) {
+    console.log(e);
+    // set data
+    var index = parseInt(e.target.id.slice(6));
+    var oldIndex = this.data.activeColorIndex
+    // if (this.data.colorArray[index].isActive === 'active') {
+    if (oldIndex === index) {
+      return;
+    } else {
+      // var targetData;
+      // targetData['colorArray'][oldIndex]['isActive'] = 'inActive';
+      // targetData['colorArray'][index]['isActive'] = 'active';
+      // this.setData(targetData);
+      this.setData({
+        'activeColorIndex': index,
+        ['colorArray[' + oldIndex + '].isActive']: 'inActive',
+        ['colorArray[' + index + '].isActive']: 'active',
+      });
+    }
+    // change color
+    config.color = COLOR_LIST[index];
+    drawAll();
   }
 })

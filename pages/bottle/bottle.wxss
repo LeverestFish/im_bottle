@@ -1,3 +1,5 @@
+@import "../../lib/iconfont.wxss";
+
 /* fundation */
 /*清除浮动*/
 .clearfix:after {
@@ -50,7 +52,7 @@
 .intro-text {
     color: #909399;
     font-size: 28rpx;
-    line-height: 40rpx;
+    line-height:42rpx;
     letter-spacing: 2rpx;
 }
 
@@ -83,8 +85,12 @@
     padding: 0;
 }
 
-.color-btn.active::before {
-    content: Y;
+.color-btn.active:before {
+  font-family: "iconfont";
+  font-size: 20rpx;
+  content: "\e614";
+  /* font-style: normal; */
+  color: #fff;
 }
 
 .bottle-area {
