@@ -2,13 +2,15 @@
  * some size parameter
  */
 var sizeInformation = {
-  
+  windowWidth: 375,
+  // x rpx的东西要画 _375 / 2 * windowWidth_ (px) 的canvas
+  rpxToPx: null
 };
 
 const config = {
   waterUrl: '../../image/water.png',
   bottleUrl: '../../image/bottle.png',
-
+  color: '#fc5185'
 };
 
 const BOTTLE_NAME = [
@@ -26,17 +28,23 @@ const BOTTLE_NAME = [
   'test9',
   'test10',
   'test11'
-  
 ];
 
 function bottle(canvasID,) {
-  this.waterY = 5;
+  this.waterY = 40;
   this.lastPointY = 0;
   this.ctx = wx.createCanvasContext(canvasID);
+  this.color = '#fc5185'
   this.drawBottle = function() {
-    this.ctx.drawImage(config.waterUrl, 0, 0, 130, 200, 0, this.waterY, 59, 108);
-    this.ctx.drawImage(config.bottleUrl, 0, 0, 130, 200, 0, 0, 59, 108);
+    this.setBackground();
+    this.ctx.drawImage(config.waterUrl, 0, 0, 246, 450, -1, -2 + this.waterY * sizeInformation.rpxToPx, 122 * sizeInformation.rpxToPx, 220 * sizeInformation.rpxToPx);
+    this.ctx.drawImage(config.bottleUrl, 0, 0, 246, 450, -1, -2, 122 * sizeInformation.rpxToPx, 220 * sizeInformation.rpxToPx);
     this.ctx.draw();
+  }
+  this.setBackground = function() {
+    this.ctx.rect(1, 1, 116 * sizeInformation.rpxToPx, 214 * sizeInformation.rpxToPx);
+    this.ctx.setFillStyle(config.color);
+    this.ctx.fill();
   }
 };
 
@@ -59,25 +67,24 @@ Page({
   data: {
     bottleArray,
     loading: false,
-    disabled: false,
-    width: '123'
+    disabled: false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    wx.getSystemInfo({
+      success: function(res){
+        sizeInformation.windowWidth=res.windowWidth;
+        sizeInformation.rpxToPx = res.windowWidth / (2.0 * 375.0);
+        console.log(sizeInformation.rpxToPx);
+      }
+    })
     for (let i = 0; i < bottleNum; i++) {
       myBottle[i] = new bottle('canvas-' + i);
       myBottle[i].drawBottle();
     }
-    var that = this;
-    wx.getSystemInfo({
-      success: function(r·es){
-        console.log(res);
-        that.setData({width: res.windowWidth});
-      }
-    })
   },
 
   /**
@@ -85,7 +92,7 @@ Page({
    */
   start: function(e) {
     var index = parseInt(e.target.id.slice(7));
-    var y = e.touches[0].y;
+    var y = e.touches[0].y / sizeInformation.rpxToPx;
     myBottle[index].lastPointY = y;
   },
   
@@ -94,9 +101,9 @@ Page({
    */
   move: function(e) {
     var index = parseInt(e.target.id.slice(7));
-    var y = e.touches[0].y;
+    var y = e.touches[0].y / sizeInformation.rpxToPx;
     var y_after = myBottle[index].waterY + y - myBottle[index].lastPointY;
-    if(y_after <= 5 && y_after >= -108) {
+    if(y_after <= 40 && y_after >= -210) {
       myBottle[index].waterY = y_after;
       myBottle[index].lastPointY = y;
       myBottle[index].drawBottle();

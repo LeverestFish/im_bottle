@@ -6,7 +6,16 @@
         <view class="intro-text">
         关于故事的说明关于故事的说明关于故事的说明关于故事的说明关于故事的说明关于故事的说明关于故事的说明关于故事的说明关于故事的说明关于故事的说明
         </view>
-        <view>windowWidth: {{width}}</view>
+    </view>
+    <view class="color-area">
+        <view class="color-text">在瓶身拖动控制水位，点击按钮选择颜色</view>
+        <view class="color-btn-area clearfix">
+            <button class="fl color-btn active" binttap="changeColor" id="color-1" style="background-color: #000000">Y</button>
+            <button class="fl color-btn" binttap="changeColor" id="color-2"></button>
+            <button class="fl color-btn" binttap="changeColor" id="color-3"></button>
+            <button class="fl color-btn" binttap="changeColor" id="color-4"></button>
+            <button class="fl color-btn" binttap="changeColor" id="color-5"></button>
+        </view>
     </view>
     <view class="bottle-area clearfix">
         <view wx:for="{{bottleArray}}" class="bottle-model fl">

@@ -20,85 +20,120 @@
 
 /* bottle.wxss */
 .width {
-    width: 300px;
-    margin: 5px auto;
+    width: 600rpx;
+    margin: 10rpx auto;
 
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 14px;
+    font-size: 28rpx;
     color: #303133;
 }
 
 /* title */
 .title {
-    margin: 0 auto 10px auto;
-    height: 25px;
+    margin: 0 auto 20rpx auto;
+    height: 50rpx;
 }
 
 .title-text {
     text-align: center;
-    font-size: 18px;
+    font-size:36rpx;
     font-weight: 500;
-    line-height: 25px;
+    line-height: 50rpx;
 }
 
 /* introduction */
 .intro {
-    margin: 0 auto 15px;
-    padding: 0 5px;
+    margin: 0 auto 10rpx;
+    padding: 0 10rpx;
 }
 
 .intro-text {
     color: #909399;
-    font-size: 14px;
-    line-height: 25px;
-    letter-spacing: 1px;
+    font-size: 28rpx;
+    line-height: 40rpx;
+    letter-spacing: 2rpx;
+}
+
+/* color-btn */
+.color-area {
+    margin: 0 auto 20rpx;
+}
+
+.color-text {
+    color: #C0C4CC;
+    font-size: 24rpx;
+    line-height: 40rpx;
+    letter-spacing: 8rpx;
+
+    padding: 0 10rpx;
+    margin-bottom: 6rpx;
+}
+
+.color-btn-area {
+    
+}
+
+.color-btn {
+    height:45rpx !important;
+    width: 80rpx !important;
+    color: #FFF;
+    font-size: 24rpx;
+    line-height: 45rpx;
+    margin: 0 28rpx 0 13rpx !important;
+    padding: 0;
+}
+
+.color-btn.active::before {
+    content: Y;
 }
 
 .bottle-area {
-    margin: 10px auto;
+    margin: 40rpx auto 20rpx;
 }
 
 /* bottle */
 .bottle-model {
-    width: 59px;
-    height: 140px;
-    padding: 0px 8px 5px;
+    width: 118rpx;
+    height: 280rpx;
+    padding: 0 16rpx 10rpx;
     /* todo padding-left was adjusted */
 }
 
 .canvas {
-    width: 59px;
-    height: 108px;
-    background-color: #f00;
+    width: 118rpx;
+    height: 216rpx;
+    /* background-color: #f00; */
 }
 
 .bottle-name {
-    width: 55px;
-    height: 28px;
+    width: 110rpx;
+    height: 56rpx;
     /* background-color: #ff0; */
-    padding: 4px 2px 0 2px;
+    padding: 8rpx 4rpx 0 4rpx;
 }
 
 .bottle-name-text {
-    font-size: 10px;
+    font-size: 20rpx;
     color: #909399;
-    letter-spacing: 1px;
-    line-height: 14px;
+    letter-spacing: 2rpx;
+    line-height: 28rpx;
     text-align: center;
 }
 
 /* button */
 .btn-area {
-    margin: 10px auto;
-    height: 40px;
-    padding-bottom: 30px;
+    margin: 20rpx auto;
+    height: 80rpx;
+    padding-bottom: 60rpx;
 }
 
 .btn {
-    height: 40px;
-    width: 150px !important;
+    height:80rpx;
+    width: 300rpx !important;
     background-color: #409EFF;
     color: #FFF;
-    font-size: 16px;
-    line-height: 24px;
+    font-size: 32rpx;
+    line-height: 80rpx;
+    margin: 0;
+    padding: 0;
 }
